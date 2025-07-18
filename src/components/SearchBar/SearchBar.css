@@ -1,0 +1,58 @@
+.search-bar-wrapper {
+  position: relative;
+}
+
+.search-bar-icon-wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  padding-left: 1rem; /* 16px */
+  pointer-events: none;
+}
+
+.search-bar-icon {
+  height: 1.25rem; /* 20px */
+  width: 1.25rem; /* 20px */
+  color: #6b7280; /* gray-500 */
+}
+
+.search-bar-input {
+  display: block;
+  width: 100%;
+  border: 1px solid #d1d5db; /* gray-300 */
+  border-radius: 18px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 3rem; /* 48px to make space for the icon */
+  padding-right: 1rem; /* 16px */
+  color: #111827; /* gray-900 */
+  font-size: 0.875rem; /* sm:text-sm */
+  line-height: 1.25rem;
+}
+
+.search-bar-input::placeholder {
+  color: #9ca3af; /* gray-400 */
+}
+
+.search-bar-input:focus {
+  outline: 1px solid #0ea5e9; /* Or your preferred focus color */
+  border-color: #0ea5e9;
+  box-shadow: none; /* Replicates focus:ring-0 */
+}
+
+/* A standard accessibility class to hide labels visually
+     but keep them available for screen readers. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

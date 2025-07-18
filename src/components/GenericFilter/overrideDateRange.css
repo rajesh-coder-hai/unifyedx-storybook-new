@@ -1,0 +1,12 @@
+.rdrStaticRanges {
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+.rdrDateRangePickerWrapper {
+  flex-direction: column !important;
+}
+
+.rdrCalendarWrapper {
+  width: 65% !important;
+}

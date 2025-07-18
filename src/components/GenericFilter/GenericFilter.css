@@ -1,0 +1,342 @@
+/* src/components/GenericFilter/GenericFilter.css */
+
+/* Main Dialog & Overlay */
+.filter-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.filter-modal-container {
+  position: fixed;
+  inset: 0;
+  overflow-y: auto;
+}
+
+.filter-modal-positioner {
+  display: flex;
+  min-height: 100%;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.filter-modal-panel {
+  width: 100%;
+  max-width: 48rem; /* Equivalent to max-w-xl */
+  height: 100vh;
+  transform-origin: right;
+  overflow: hidden;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  background-color: white;
+  text-align: left;
+  vertical-align: middle;
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.filter-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.filter-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #111827;
+}
+
+.filter-clear-button {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #0ea5e9;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.filter-clear-button:hover {
+  color: #0284c7;
+}
+
+/* Form & Main Content */
+.filter-form {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.filter-content-wrapper {
+  flex-grow: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+/* Tabs */
+.filter-tabs-list {
+  display: flex;
+  flex-direction: column;
+  width: 14rem;
+  padding: 0.75rem;
+  gap: 0.25rem;
+  border-right: 1px solid #e5e7eb;
+  background-color: #f9fafb;
+  overflow-y: auto;
+}
+
+.filter-tab-item {
+  width: 100%;
+  text-align: left;
+  padding: 0.625rem 0.75rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: background-color 150ms ease-in-out, color 150ms ease-in-out;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.filter-tab-item:hover {
+  background-color: #e5e7eb;
+  color: #111827;
+}
+
+.filter-tab-item[data-headlessui-state="selected"] {
+  background-color: #0284c7;
+  color: white;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+
+.filter-tab-item:focus-visible {
+  outline: 2px solid #0ea5e9;
+  outline-offset: 2px;
+}
+
+.filter-active-indicator {
+  margin-left: 0.5rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  background-color: #4ade80;
+  border-radius: 9999px;
+}
+
+.filter-tabs-panels {
+  flex: 1;
+  overflow-y: auto;
+  background-color: white;
+}
+
+.filter-tab-panel {
+  height: 100%;
+  outline: none;
+}
+
+/* Panel Content (Checkboxes, inputs etc.) */
+.filter-panel-content {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.filter-operator-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filter-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.filter-select {
+  display: block;
+  width: 10rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+.filter-select:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  border-color: #0ea5e9;
+}
+
+.filter-checkbox-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  /* max-height: 15rem; 240px */
+  overflow-y: auto;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  padding: 0.5rem;
+}
+
+.filter-checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.25rem;
+}
+
+.filter-checkbox-input {
+  height: 1rem;
+  width: 1rem;
+  color: #0ea5e9;
+  border: 1px solid #d1d5db;
+  border-radius: 0.25rem;
+}
+.filter-checkbox-input:focus {
+  ring: #0ea5e9;
+}
+
+.filter-checkbox-label {
+  font-size: 0.875rem;
+  color: #374151;
+}
+
+.user-label-name {
+  font-weight: 500;
+}
+.user-label-email {
+  font-size: 0.75rem;
+  color: #6b7280;
+  display: block;
+}
+
+/* Date Filter */
+.radio-group-item {
+  position: relative;
+  display: flex;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  outline: none;
+}
+.radio-group-item[data-headlessui-state="checked"] {
+  background-color: #0284c7;
+  color: white;
+}
+.radio-group-item[data-headlessui-state~="active"] {
+  outline: 2px solid #0ea5e9;
+  outline-offset: 2px;
+}
+.radio-group-item .radio-label {
+  font-weight: 500;
+}
+.radio-group-item[data-headlessui-state="checked"] .radio-label {
+  color: white;
+}
+.radio-check-icon {
+  flex-shrink: 0;
+  color: white;
+}
+
+/* Footer */
+.filter-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1rem;
+  border-top: 1px solid #e5e7eb;
+  background-color: #f9fafb;
+}
+
+.filter-button {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 0.375rem;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  outline: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+.filter-button:focus {
+  outline: 2px solid #0ea5e9;
+  outline-offset: 2px;
+}
+
+.filter-button.cancel {
+  color: #374151;
+  background-color: white;
+  border-color: #d1d5db;
+  margin-right: 0.75rem;
+}
+.filter-button.cancel:hover {
+  background-color: #f9fafb;
+}
+
+.filter-button.apply {
+  color: white;
+}
+
+.filter-button.apply:not(:disabled) {
+  background-color: #0ea5e9;
+}
+.filter-button.apply:not(:disabled):hover {
+  background-color: #0284c7;
+}
+
+.filter-button.apply:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* Misc */
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  padding: 2.5rem 0;
+}
+.loading-spinner div {
+  animation: spin 1s linear infinite;
+  border-radius: 9999px;
+  height: 2rem;
+  width: 2rem;
+  border-bottom: 2px solid #0284c7;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Add this to GenericFilter.css */
+
+.filter-clear-selection-button {
+  background: none;
+  border: none;
+  color: #0ea5e9;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.875rem;
+  text-align: left;
+  margin-top: 0.5rem;
+  padding: 0.25rem;
+  align-self: flex-start; /* Aligns the button to the left */
+}
+
+.filter-clear-selection-button:hover {
+  text-decoration: underline;
+}
