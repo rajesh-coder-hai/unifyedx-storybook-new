@@ -1,0 +1,82 @@
+.avatar-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: 9999px; /* Make it a circle */
+  background-color: #e5e7eb; /* gray-200, fallback background */
+  color: #4b5563; /* gray-600 */
+  font-weight: 500;
+  overflow: hidden; /* Clips the image to a circle */
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+/* --- Size Variants --- */
+.avatar--size-small {
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 0.625rem;
+} /* 24px */
+.avatar--size-medium {
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 0.875rem;
+} /* 40px */
+.avatar--size-large {
+  width: 4rem;
+  height: 4rem;
+  font-size: 1.25rem;
+} /* 64px */
+.avatar--size-xlarge {
+  width: 6rem;
+  height: 6rem;
+  font-size: 2rem;
+} /* 96px */
+
+/* --- Content Styles --- */
+.avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures image covers the circle without distortion */
+}
+
+.avatar-initials,
+.avatar-icon {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Adjust icon size within the avatar */
+.avatar-icon svg {
+  width: 60%;
+  height: 60%;
+}
+
+/* --- Avatar Group Styles --- */
+.avatar-group-container {
+  display: flex;
+  align-items: center;
+}
+
+/* Create the stacking effect */
+.avatar-group-container .avatar-container {
+  margin-left: -0.75rem; /* Overlap avatars by 12px */
+  border: 2px solid white;
+  box-sizing: content-box; /* Ensures border doesn't shrink the avatar */
+}
+
+.avatar-group-container .avatar-container:first-child {
+  margin-left: 0;
+}
+
+/* Style for the "+N" excess indicator */
+.avatar-excess {
+  background-color: #f3f4f6; /* gray-100 */
+  color: #374151; /* gray-700 */
+  border: 2px solid white;
+  z-index: 10;
+}
