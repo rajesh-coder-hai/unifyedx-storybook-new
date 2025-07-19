@@ -1,0 +1,63 @@
+/* The main wrapper for the menu component */
+.dropdown-wrapper {
+  position: relative;
+  display: inline-block;
+  text-align: left;
+}
+
+/* The menu panel itself */
+.dropdown-menu {
+  position: absolute;
+  z-index: 10;
+  margin-top: 0.5rem;
+  width: 10rem; /* 224px */
+  origin-top-right: ;
+  border-radius: 0.375rem; /* rounded-md */
+  background-color: white;
+  padding: 0.25rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  border: 1px solid #e5e7eb; /* gray-200 */
+
+  /* Transition styles powered by Headless UI's data attributes */
+  transition-property: transform, opacity;
+  transition-timing-function: ease-out;
+  transition-duration: 100ms;
+}
+
+.dropdown-menu[data-headlessui-state="closed"] {
+  transform: scale(0.95);
+  opacity: 0;
+}
+
+/* A single menu item */
+.dropdown-menu-item {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 0.75rem; /* 12px */
+  border-radius: 0.25rem;
+  padding: 0.5rem 0.75rem; /* py-2 px-3 */
+  font-size: 0.875rem; /* text-sm */
+  color: #1f2937; /* gray-800 */
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.dropdown-menu-item:hover,
+.dropdown-menu-item:focus {
+  background-color: #f3f4f6; /* gray-100 */
+  outline: none;
+}
+
+.dropdown-menu-item .item-icon {
+  color: #6b7280; /* gray-500 */
+}
+
+/* The divider line between items  */
+.dropdown-divider {
+  margin: 0.25rem 0;
+  height: 1px;
+  background-color: #e5e7eb; /* gray-200 */
+}

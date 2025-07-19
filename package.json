@@ -14,6 +14,8 @@
   "dependencies": {
     "@headlessui/react": "^2.2.4",
     "@hookform/resolvers": "^5.1.1",
+    "@storybook/jest": "^0.2.2",
+    "@storybook/testing-library": "^0.2.1",
     "@syncfusion/ej2-react-calendars": "^29.1.40",
     "@tailwindcss/vite": "^4.1.11",
     "axios": "^1.10.0",
@@ -24,6 +26,8 @@
     "react": "^19.1.0",
     "react-date-range": "^2.0.1",
     "react-dom": "^19.1.0",
+    "react-dropzone": "^14.3.8",
+    "react-file-icon": "^1.6.0",
     "react-hook-form": "^7.60.0",
     "simplebar-react": "^3.3.2",
     "tailwindcss": "^4.1.11",

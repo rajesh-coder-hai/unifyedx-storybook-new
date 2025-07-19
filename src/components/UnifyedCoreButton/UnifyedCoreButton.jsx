@@ -26,6 +26,8 @@ export const UnifyedCoreButton = ({
   disabled = false,
   size = "medium",
   label,
+  children, // ✅ Add children to the props list
+
   onClick,
   ...props
 }) => {
@@ -69,6 +71,7 @@ export const UnifyedCoreButton = ({
         <>
           {Icon && <Icon size={size === "large" ? 20 : 16} />}
           {label}
+          {children} {/* ✅ Render any children here */}
         </>
       )}
     </button>
