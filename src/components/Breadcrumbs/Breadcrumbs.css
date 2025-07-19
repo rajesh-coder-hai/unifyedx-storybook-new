@@ -1,0 +1,51 @@
+.breadcrumbs-nav {
+  font-family: sans-serif;
+}
+
+.breadcrumbs-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap; /* Allows wrapping on small screens */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* 8px */
+  font-size: 0.875rem; /* 14px */
+  font-weight: 500;
+  color: #6b7280; /* gray-500 */
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.breadcrumb-link:hover {
+  color: #111827; /* gray-900 */
+}
+
+/* Style for the current page link */
+.breadcrumb-link[aria-current="page"] {
+  color: #111827; /* gray-900 */
+  font-weight: 600;
+  pointer-events: none; /* The current page is not clickable */
+}
+
+.breadcrumb-icon {
+  width: 1rem; /* 16px */
+  height: 1rem; /* 16px */
+}
+
+.breadcrumb-separator {
+  width: 1rem; /* 16px */
+  height: 1rem; /* 16px */
+  color: #9ca3af; /* gray-400 */
+  margin: 0 0.5rem; /* 8px */
+}

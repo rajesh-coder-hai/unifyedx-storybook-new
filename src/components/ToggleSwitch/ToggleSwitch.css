@@ -1,0 +1,78 @@
+.switch-container {
+  width: 100%;
+  font-family: sans-serif;
+}
+
+.switch-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+}
+
+.switch-element {
+  position: relative;
+  display: inline-flex;
+  height: 1.5rem; /* 24px - reduced from 28px */
+  width: 2.75rem; /* 44px - reduced from 52px */
+  flex-shrink: 0;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  transition: all 0.2s ease-in-out;
+  background-color: #e5e7eb; /* gray-200 - lighter gray for better contrast */
+}
+
+.switch-element:focus-visible {
+  outline: 2px solid #3b82f6; /* blue-500 */
+  outline-offset: 2px;
+}
+
+.switch-element[data-headlessui-state~="checked"] {
+  background-color: #2563eb; /* blue-600 */
+}
+
+/* Disabled state */
+.switch-element[data-headlessui-state~="disabled"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Error States */
+.switch-element--error {
+  background-color: #fecaca; /* red-200 - lighter red */
+}
+.switch-element--error[data-headlessui-state~="checked"] {
+  background-color: #ef4444; /* red-500 - better contrast */
+}
+
+.switch-label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #374151;
+  user-select: none;
+}
+
+.switch-thumb {
+  pointer-events: none;
+  display: inline-block;
+  height: 1.125rem; /* 18px - reduced from 20px */
+  width: 1.125rem; /* 18px - reduced from 20px */
+  background-color: white;
+  border-radius: 9999px;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.1);
+  transition: transform 0.2s ease-in-out;
+  transform: translateX(0.25rem); /* 4px */
+  top: 50%;
+  position: absolute;
+  margin-top: -0.5625rem; /* Half of thumb height */
+}
+
+.switch-element[data-headlessui-state~="checked"] .switch-thumb {
+  transform: translateX(1.25rem); /* 20px - adjusted for new width */
+}
+
+.switch-error-message {
+  font-size: 0.875rem;
+  color: #ef4444; /* red-500 */
+  margin-top: 0.5rem;
+}
