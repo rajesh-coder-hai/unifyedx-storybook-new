@@ -1,0 +1,141 @@
+.select-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-family: sans-serif;
+}
+.select-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+}
+.select-button-container {
+  position: relative;
+}
+.select-button {
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+  background-color: white;
+  padding: 0.625rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.select-button:focus {
+  outline: none;
+}
+.select-button:focus-visible {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+.select-button--error {
+  border-color: #dc2626;
+  background-color: #fee2e2;
+}
+.select-button[disabled] {
+  background-color: #f3f4f6;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+.select-value-display {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.select-value-display .placeholder {
+  color: #9ca3af;
+}
+.select-chevron {
+  color: #6b7280;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+.select-options {
+  position: absolute;
+  margin-top: 0.25rem;
+  width: 100%;
+  max-height: 20rem; /* 320px */
+  background-color: white;
+  border-radius: 0.5rem;
+  border: 1px solid #d1d5db;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.select-options:focus {
+  outline: none;
+}
+.search-input-wrapper {
+  position: relative;
+  padding: 0.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+.search-icon {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  color: #9ca3af;
+}
+.select-search-input {
+  width: 85%;
+  padding: 0.5rem 0.75rem 0.5rem 2.25rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+}
+.select-search-input:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+.select-options-list {
+  overflow-y: auto;
+  padding: 0.25rem;
+}
+.no-results {
+  padding: 0.75rem 1rem;
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+.select-option {
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  padding: 0.75rem 1rem;
+  border-radius: 0.375rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.select-option.active {
+  background-color: #eef2ff;
+  color: #1e3a8a;
+}
+.option-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.option-icon {
+  width: 1rem;
+  height: 1rem;
+}
+.option-label.selected {
+  font-weight: 600;
+}
+.option-check-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #2563eb;
+}
+.select-error-message {
+  font-size: 0.875rem;
+  color: #dc2626;
+  margin-top: 0.25rem;
+}

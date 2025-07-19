@@ -19,6 +19,7 @@
     "@syncfusion/ej2-react-calendars": "^29.1.40",
     "@tailwindcss/vite": "^4.1.11",
     "axios": "^1.10.0",
+    "classnames": "^2.5.1",
     "formik": "^2.4.6",
     "framer-motion": "^12.23.6",
     "lucide-react": "^0.525.0",
