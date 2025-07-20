@@ -1,27 +1,95 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+/* Import IBM Plex Sans font from Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
 
 :root {
-  --font-primary: "IBM Plex Sans", sans-serif;
+  /* Font Family */
+  --font-primary: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 
+  /* Text Colors */
+  --color-text-primary: #1a1a1a; /* Dark gray for primary text */
+  --color-text-secondary: #4d4d4d; /* Medium gray for secondary text */
+  --color-text-tertiary: #808080; /* Light gray for tertiary text */
+  --color-text-placeholder: #b3b3b3; /* Placeholder text */
+  --color-text-disabled: #cccccc; /* Disabled text */
+  --color-text-error: #d92d20; /* Error text */
+  --color-text-success: #0e6245; /* Success text */
+  --color-text-warning: #ff8f0b; /* Warning text */
+  --color-text-info: #006dff; /* Info text */
+
+  /* Icon Colors */
+  --color-icon-default: #666666; /* Default icon color */
+  --color-icon-hover: #333333; /* Icon hover state */
+  --color-icon-active: #1a1a1a; /* Icon active state */
+  --color-icon-disabled: #b3b3b3; /* Disabled icon */
+
+  /* Background Colors */
+  --color-bg-default: #ffffff; /* Default background */
+  --color-bg-secondary: #f5f5f5; /* Secondary background */
+  --color-bg-tertiary: #e6e6e6; /* Tertiary background */
+  --color-bg-disabled: #f5f5f5; /* Disabled state background */
+  --color-bg-hover: #f0f0f0; /* Hover state background */
+  --color-bg-active: #e6e6e6; /* Active state background */
+
+  /* Border Colors */
+  --color-border-default: #d9d9d9; /* Default border */
+  --color-border-hover: #b3b3b3; /* Hover state border */
+  --color-border-active: #808080; /* Active state border */
+  --color-border-error: #d92d20; /* Error border */
+  --color-border-focus: #006dff; /* Focus ring */
+
+  /* Primary Colors */
+  --color-primary: #006dff; /* Primary brand color */
+  --color-primary-hover: #0058cc; /* Primary hover */
+  --color-primary-active: #004499; /* Primary active */
+
+  /* State Colors */
+  --color-error: #d92d20; /* Error state */
+  --color-warning: #ff8f0b; /* Warning state */
+  --color-success: #0e6245; /* Success state */
+  --color-info: #006dff; /* Info state */
+}
+
+/* Apply the font family to the entire document */
+body {
   font-family: var(--font-primary);
-  font-optical-sizing: auto;
-  font-style: normal;
-  font-variation-settings: "wdth" 100;
-  font-weight: 400;
-  line-height: 1.5;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
+  color: var(--color-text-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Typography scale */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  margin: 0 0 0.5em;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.75rem;
+}
+h4 {
+  font-size: 1.5rem;
+}
+h5 {
+  font-size: 1.25rem;
+}
+h6 {
+  font-size: 1rem;
+}
+
+p {
+  margin: 0 0 1em;
+  line-height: 1.5;
 }

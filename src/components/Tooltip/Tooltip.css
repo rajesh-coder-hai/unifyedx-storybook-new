@@ -1,0 +1,51 @@
+/* --- Base Styles & Sizes --- */
+.custom-tooltip {
+  font-family: sans-serif;
+  font-weight: 500;
+  border-radius: 0.375rem !important; /* 6px */
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
+  z-index: 9999 !important;
+}
+
+.custom-tooltip--size-small {
+  padding: 0.25rem 0.5rem !important; /* 4px 8px */
+  font-size: 0.75rem !important; /* 12px */
+}
+
+.custom-tooltip--size-medium {
+  padding: 0.5rem 0.75rem !important; /* 8px 12px */
+  font-size: 0.875rem !important; /* 14px */
+}
+
+/* --- Variant Styles (using CSS variables from react-tooltip) --- */
+
+/* Dark (Default) Variant */
+.custom-tooltip[data-tooltip-variant="dark"] {
+  --rt-bg-color: #1f2937; /* gray-800 */
+  --rt-text-color: #ffffff;
+}
+
+/* Light Variant */
+.custom-tooltip[data-tooltip-variant="light"] {
+  --rt-bg-color: #ffffff;
+  --rt-text-color: #1f2937;
+  border: 1px solid #e5e7eb;
+}
+
+/* Info Variant */
+.custom-tooltip[data-tooltip-variant="info"] {
+  --rt-bg-color: #3b82f6; /* blue-500 */
+  --rt-text-color: #ffffff;
+}
+
+/* Success Variant */
+.custom-tooltip[data-tooltip-variant="success"] {
+  --rt-bg-color: #22c55e; /* green-500 */
+  --rt-text-color: #ffffff;
+}
+
+/* Error Variant */
+.custom-tooltip[data-tooltip-variant="error"] {
+  --rt-bg-color: #ef4444; /* red-500 */
+  --rt-text-color: #ffffff;
+}
