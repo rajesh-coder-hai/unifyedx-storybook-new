@@ -22,7 +22,7 @@
 
 .filter-modal-panel {
   width: 100%;
-  max-width: 48rem; /* Equivalent to max-w-xl */
+  max-width: 46rem; /* Equivalent to max-w-xl */
   height: 100vh;
   transform-origin: right;
   overflow: hidden;
@@ -42,7 +42,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 1.5rem;
+  padding: 0.6rem 1.5rem;
   border-bottom: 1px solid #e5e7eb;
 }
 

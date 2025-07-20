@@ -1,0 +1,79 @@
+stages:
+  - install
+  - build
+  - publish
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+
+# --- Job 1: Install Dependencies (No changes) ---
+install_dependencies:
+  stage: install
+  image: node:20
+  script:
+    - npm ci
+
+# --- Job 2: Build the Library (No changes) ---
+build_library:
+  stage: build
+  image: node:20
+  needs: [install_dependencies]
+  script:
+    - npm run build
+  artifacts:
+    paths:
+      - dist
+      - package.json
+
+# --- ✅ NEW: Job 3a: Publish Development Version (Automatic) ---
+publish_dev_version:
+  stage: publish
+  image: node:20
+  needs: [build_library]
+  # This job will ONLY run automatically on pushes to the 'dev' branch
+  only:
+    - dev
+  script:
+    - echo "Preparing to publish a development version to npm..."
+    # Configure npm with your authentication token from GitLab CI/CD variables
+    - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
+
+    # Configure Git
+    - git config --global user.name "${GITLAB_USER_NAME}"
+    - git config --global user.email "${GITLAB_USER_EMAIL}"
+
+    # Bump to a pre-release patch version (e.g., 0.1.0 -> 0.1.1-dev.0)
+    # This clearly marks it as a non-production build.
+    - npm version prepatch --preid dev -m "chore: release dev version %s [skip ci]"
+
+    # Publish to npm under a 'dev' distribution tag
+    # Users must specifically install this with "npm install your-package@dev"
+    - npm publish --tag dev
+
+    # Push the new version commit and tag back to your GitLab repository
+    - git push "https://${GITLAB_USER_LOGIN}:${GITLAB_TOKEN}@${CI_REPOSITORY_URL#*@}" HEAD:${CI_COMMIT_REF_NAME} --follow-tags
+
+    - echo "Successfully published dev version $(node -p 'require(\"./package.json\").version') to npm."
+
+# --- Job 3b: Publish Production Version (Manual) ---
+publish_package:
+  stage: publish
+  image: node:20
+  needs: [build_library]
+  # This job will ONLY run on the 'main' branch and must be started manually
+  only:
+    - main
+  when: manual
+  variables:
+    VERSION_BUMP: "patch" # Default bump for manual runs
+  script:
+    - echo "Preparing to publish a production version to npm..."
+    - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
+    - git config --global user.name "${GITLAB_USER_NAME}"
+    - git config --global user.email "${GITLAB_USER_EMAIL}"
+    - npm version ${VERSION_BUMP} -m "chore: release version %s [skip ci]"
+    - npm publish # Publishes to the default 'latest' tag
+    - git push "https://${GITLAB_USER_LOGIN}:${GITLAB_TOKEN}@${CI_REPOSITORY_URL#*@}" HEAD:${CI_COMMIT_REF_NAME} --follow-tags
+    - echo "Successfully published version $(node -p 'require(\"./package.json\").version') to npm."

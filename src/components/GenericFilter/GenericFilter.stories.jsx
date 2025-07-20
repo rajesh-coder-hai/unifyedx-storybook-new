@@ -1,6 +1,6 @@
 // src/components/GenericFilter/GenericFilter.stories.js
 import { useState } from "react";
-import GenericFilterModal from "./GenericFilter";
+import { GenericFilter as GenericFilterModal } from "./GenericFilter";
 
 // --- Mock Data and Configuration ---
 

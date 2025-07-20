@@ -4,7 +4,6 @@ import {
   Dialog,
   DialogPanel,
   DialogTitle,
-  RadioGroup,
   Tab,
   TabGroup,
   TabList,
@@ -13,17 +12,16 @@ import {
   TransitionChild,
 } from "@headlessui/react";
 // import { DateRangePickerComponent } from "@syncfusion/ej2-react-calendars";
-import { DateRangePicker } from "react-date-range";
 import { useFormik } from "formik";
 import { motion } from "framer-motion";
-import moment from "moment";
 import { Fragment, useMemo, useState } from "react";
+import { DateRangePicker } from "react-date-range";
 // import { dateRangeOptions } from "../../utils/constant";
 import "./GenericFilter.css"; // Import the CSS file
 import "./overrideDateRange.css"; // Import the custom styles for date range picker
 
 // The user fetching function is now a prop for better testing and Storybook integration
-const GenericFilterModal = ({
+export const GenericFilter = ({
   isOpen,
   onClose,
   onApplyFilters,
@@ -111,64 +109,6 @@ const GenericFilterModal = ({
       !loadingUsers[tabKey]
     ) {
       fetchUsers(tabKey, url);
-    }
-  };
-
-  const handleDateRangeTypeChange = (field, selectedRangeType) => {
-    let dateValues = [];
-    const today = moment();
-
-    switch (selectedRangeType) {
-      case "today":
-        dateValues = [
-          today.clone().startOf("day").toDate(),
-          today.clone().endOf("day").toDate(),
-        ];
-        break;
-      case "this_week":
-        dateValues = [
-          today.clone().startOf("isoWeek").toDate(),
-          today.clone().endOf("day").toDate(),
-        ];
-        break;
-      case "last_week":
-        dateValues = [
-          today.clone().subtract(1, "week").startOf("isoWeek").toDate(),
-          today.clone().subtract(1, "week").endOf("isoWeek").toDate(),
-        ];
-        break;
-      case "this_month":
-        dateValues = [
-          today.clone().startOf("month").toDate(),
-          today.clone().endOf("month").toDate(),
-        ];
-        break;
-      case "last_month":
-        dateValues = [
-          today.clone().subtract(1, "month").startOf("month").toDate(),
-          today.clone().subtract(1, "month").endOf("month").toDate(),
-        ];
-        break;
-      case "custom":
-        dateValues = formik.values[field]?.values || [];
-        break;
-      default:
-        dateValues = [];
-    }
-
-    formik.setFieldValue(field, {
-      ...formik.values[field],
-      values: dateValues,
-      range: selectedRangeType,
-    });
-  };
-
-  const handleCustomDateChange = (field, event) => {
-    const values = event.value || [];
-    if (values[0] && values[1]) {
-      formik.setFieldValue(`${field}.values`, [values[0], values[1]]);
-    } else {
-      formik.setFieldValue(`${field}.values`, []);
     }
   };
 
@@ -529,5 +469,3 @@ const GenericFilterModal = ({
     </Transition>
   );
 };
-
-export default GenericFilterModal;
