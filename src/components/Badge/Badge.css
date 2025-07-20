@@ -1,0 +1,83 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem; /* 6px */
+  font-family: sans-serif;
+  font-weight: 500;
+  border-radius: 9999px; /* Pill shape */
+  border: 1px solid transparent;
+  box-sizing: border-box;
+}
+
+/* --- Size Variants --- */
+.badge--size-small {
+  padding: 0.125rem 0.5rem; /* 2px 8px */
+  font-size: 0.75rem; /* 12px */
+}
+.badge--size-medium {
+  padding: 0.25rem 0.75rem; /* 4px 12px */
+  font-size: 0.875rem; /* 14px */
+}
+.badge--size-large {
+  padding: 0.375rem 1rem; /* 6px 16px */
+  font-size: 1rem; /* 16px */
+}
+
+/* --- Color Variants --- */
+.badge--variant-default {
+  background-color: #f3f4f6; /* gray-100 */
+  color: #374151; /* gray-700 */
+  border-color: #e5e7eb; /* gray-200 */
+}
+.badge--variant-primary {
+  background-color: #dbeafe; /* blue-100 */
+  color: #1d4ed8; /* blue-700 */
+}
+.badge--variant-success {
+  background-color: #dcfce7; /* green-100 */
+  color: #15803d; /* green-700 */
+}
+.badge--variant-warning {
+  background-color: #ffedd5; /* orange-100 */
+  color: #c2410c; /* orange-700 */
+}
+.badge--variant-danger {
+  background-color: #fee2e2; /* red-100 */
+  color: #b91c1c; /* red-700 */
+}
+
+/* --- Icon Styles --- */
+.badge-icon {
+  /* Match font size for scaling */
+  width: 1em;
+  height: 1em;
+}
+
+/* --- Remove Button Styles --- */
+.badge--with-remove {
+  padding-right: 0.25rem; /* Less padding on the right to accommodate the button */
+}
+
+.badge-remove-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  border-radius: 9999px;
+  margin-left: 0.25rem;
+  padding: 0.125rem;
+  cursor: pointer;
+  color: inherit; /* Inherits the text color of the badge variant */
+  opacity: 0.7;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.badge-remove-button:hover {
+  opacity: 1;
+}
+
+.badge-remove-icon {
+  width: 0.875em;
+  height: 0.875em;
+}
