@@ -37,6 +37,30 @@ PlaceholderIcon.args = {
   name: "", // No name provided
 };
 
+export const WithRandomColors = () => (
+  <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+    <Avatar size="large" name="Random Color" />
+    <Avatar size="large" name="Another User" />
+    <Avatar size="large" />
+    <Avatar size="large" name="Peter Pan" />
+  </div>
+);
+WithRandomColors.storyName = "With Random Colors";
+
+export const WithCustomColors = () => (
+  <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+    <Avatar size="large" name="CC" bgColor="lightblue" textColor="darkblue" />
+    <Avatar
+      size="large"
+      name="WP"
+      bgColor="#f9a8d4" // Pink-300
+      textColor="#831843" // Pink-800
+    />
+    <Avatar size="large" bgColor="teal" textColor="white" />
+  </div>
+);
+WithCustomColors.storyName = "With Custom Colors";
+
 export const Sizes = () => (
   <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
     <Avatar

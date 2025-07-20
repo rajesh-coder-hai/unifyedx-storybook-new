@@ -1,7 +1,8 @@
 import { User } from "lucide-react";
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import classNames from "classnames";
 import "./Avatar.css";
+import { generatePastelColor } from "../../utils/colors";
 
 // Helper function to get initials from a name
 const getInitials = (name = "") => {
@@ -17,12 +18,14 @@ export const Avatar = ({
   src,
   name,
   size = "medium", // 'small', 'medium', 'large', 'xlarge'
+  bgColor, // ✅ New prop for background color
+  textColor, // ✅ New prop for text/icon color
   className,
   ...props
 }) => {
   // State to handle image loading errors
   const [hasError, setHasError] = useState(false);
-
+  const randomColors = useMemo(() => generatePastelColor(), []);
   const showImage = src && !hasError;
   const showInitials = !showImage && name;
   const showIcon = !showImage && !name;
@@ -33,8 +36,18 @@ export const Avatar = ({
     className
   );
 
+  // Determine the final colors to use
+  const finalBgColor = showImage ? "transparent" : bgColor || randomColors.bg;
+  const finalTextColor = textColor || randomColors.text;
+
+  // Inline styles for dynamic colors
+  const avatarStyles = {
+    backgroundColor: finalBgColor,
+    color: finalTextColor,
+  };
+
   return (
-    <div className={avatarClasses} {...props}>
+    <div className={avatarClasses} style={avatarStyles} {...props}>
       {showImage && (
         <img
           src={src}
