@@ -1,0 +1,206 @@
+:root {
+  --wizard-bg: #ffffff;
+  --wizard-text: #111827;
+  --wizard-border: #e5e7eb;
+  --wizard-overlay: rgba(0, 0, 0, 0.5);
+  --wizard-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --wizard-progress: #3b82f6;
+  --wizard-icon: #6b7280;
+  --wizard-icon-hover: #111827;
+  --wizard-header-bg: #ffffff;
+  --wizard-scrollbar: #9ca3af;
+  --wizard-scrollbar-bg: #f3f4f6;
+}
+
+.wizard-dialog {
+  position: relative;
+  z-index: 50;
+}
+
+.wizard-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: var(--wizard-overlay);
+  backdrop-filter: blur(4px);
+}
+
+.wizard-container {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.wizard-positioner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 32rem;
+}
+
+.wizard-panel {
+  pointer-events: auto;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--wizard-bg);
+  box-shadow: var(--wizard-shadow);
+}
+
+.wizard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background-color: var(--wizard-header-bg);
+  border-bottom: 1px solid var(--wizard-border);
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+.wizard-header-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-grow: 1;
+}
+
+.wizard-header-text {
+  flex-grow: 1;
+}
+
+.wizard-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--wizard-text);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.wizard-description {
+  font-size: 0.875rem;
+  color: var(--wizard-icon);
+  margin: 0.25rem 0 0;
+}
+
+.wizard-back-button {
+  background: none;
+  border: none;
+  color: var(--wizard-icon);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wizard-back-button:hover {
+  background-color: var(--wizard-scrollbar-bg);
+  color: var(--wizard-icon-hover);
+}
+
+.wizard-close-button {
+  background: none;
+  border: none;
+  color: var(--wizard-icon);
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wizard-close-button:hover {
+  background-color: var(--wizard-scrollbar-bg);
+  color: var(--wizard-icon-hover);
+}
+
+.wizard-progress-container {
+  height: 2px;
+  background-color: var(--wizard-border);
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.wizard-progress-bar {
+  height: 100%;
+  background-color: var(--wizard-progress);
+  transition: width 0.3s ease;
+}
+
+.wizard-body {
+  flex-grow: 1;
+  overflow-y: auto;
+  /* Prevent horizontal scrolling */
+  overflow-x: hidden;
+  position: relative;
+  /* Adjust padding if needed */
+  padding: 0;
+}
+
+.wizard-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.wizard-body::-webkit-scrollbar-track {
+  background: var(--wizard-scrollbar-bg);
+}
+
+.wizard-body::-webkit-scrollbar-thumb {
+  background-color: var(--wizard-scrollbar);
+  border-radius: 10px;
+  border: 2px solid var(--wizard-scrollbar-bg);
+}
+
+.wizard-step {
+  /* Ensure step content doesn't cause overflow */
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 1rem 0;
+}
+
+/* For form elements */
+.form-group input,
+.form-group select {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.wizard-step-motion-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Add these properties to prevent horizontal overflow */
+  overflow-x: hidden;
+  padding: 0 1.5rem;
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+@media (max-width: 640px) {
+  .wizard-panel {
+    max-width: 100vw;
+  }
+
+  .wizard-header {
+    padding: 1rem;
+  }
+
+  .wizard-body {
+    padding: 1rem;
+  }
+
+  .wizard-step-motion-wrapper {
+    padding: 0 1rem;
+  }
+}
