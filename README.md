@@ -1,12 +1,41 @@
-# React + Vite
+# 🎨 Acme Component Library
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Storybook](https://img.shields.io/badge/-Storybook-FF4785?logo=storybook&logoColor=white)
+![React](https://img.shields.io/badge/-React-61DAFB?logo=react&logoColor=white)
+![Vite](https://img.shields.io/badge/-Vite-646CFF?logo=vite&logoColor=white)
 
-Currently, two official plugins are available:
+A beautifully crafted collection of reusable, accessible React components built with modern web standards. Perfect for building consistent, production-ready UIs faster.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Component Library Preview](https://placehold.co/1200x600/111827/FFFFFF?text=Acme+Component+Library+Preview)
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| Feature                 | Description                                      |
+| ----------------------- | ------------------------------------------------ |
+| **Modern Stack**        | Built with React 19 + Vite, styled with pure CSS |
+| **Accessibility First** | WCAG-compliant components powered by Headless UI |
+| **Form Ready**          | Seamless React Hook Form integration             |
+| **Icon Friendly**       | Works beautifully with `lucide-react` icons      |
+| **Type Safe**           | Full JSDoc support (TypeScript ready)            |
+| **CI/CD**               | Automated publishing via GitLab pipelines        |
+
+## 🧩 Component Showcase
+
+### Core Components
+
+- **Buttons**: `Button`, `ButtonWithDropdown`, `IconButton`
+- **Forms**: `Input`, `Textarea`, `Checkbox`, `RadioGroup`, `Select`, `ToggleSwitch`, `FileUpload`
+- **Navigation**: `Sidebar`, `Breadcrumbs`, `Pagination`
+- **Overlays**: `Modal`, `WizardModal`, `Tooltip`
+- **Data Display**: `Avatar`, `Badge`, `Spinner`, `FullScreenLoader`
+- **Date Pickers**: `DatePicker`, `DateRangePicker`
+
+## 🚀 Quick Start
+
+### Installation
+
+```bash
+npm install unifyedx-storybook-new@latest
+# or
+yarn add unifyedx-storybook-new@latest
+```

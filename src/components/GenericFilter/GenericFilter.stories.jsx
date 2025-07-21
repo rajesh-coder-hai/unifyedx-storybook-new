@@ -7,10 +7,22 @@ import { GenericFilter as GenericFilterModal } from "./GenericFilter";
 const initialFormikValues = {
   status: { operator: "in", values: [] },
   createdBy: { operator: "in", values: [] },
+  groups: { operator: "in", values: [] },
   createdAt: { operator: "between", values: [], range: "this_week" },
 };
 
 const filterConfig = [
+  {
+    key: "groups",
+    label: "Group",
+    type: "multiselect",
+    operators: ["in", "not_in"],
+    options: [
+      { value: "active", label: "Active" },
+      { value: "inactive", label: "Inactive" },
+      { value: "pending", label: "Pending Review" },
+    ], // this will be populated dynamically from the API
+  },
   {
     key: "status",
     label: "Status",

@@ -1,13 +1,11 @@
-/// <reference types="vitest/config" />
-import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import tailwindcss from "@tailwindcss/vite";
-import { visualizer } from "rollup-plugin-visualizer";
+import { defineConfig } from "vite";
+// import tailwindcss from "@tailwindcss/vite";
 
 // https://vite.dev/config/
-import path, { resolve } from "node:path";
-import { fileURLToPath } from "node:url";
 import { storybookTest } from "@storybook/addon-vitest/vitest-plugin";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 const dirname =
   typeof __dirname !== "undefined"
     ? __dirname
@@ -15,29 +13,7 @@ const dirname =
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({
-  plugins: [
-    react(),
-    tailwindcss(),
-    visualizer({
-      filename: "bundle-stats.html", // output file name
-      open: true, // automatically opens the report in your browser after building
-    }),
-  ],
-  build: {
-    lib: {
-      entry: resolve(__dirname, "src/components/index.js"),
-      name: "unifyedx-storybook-new",
-      // ✅ Only build the ES module format
-      formats: ["es"],
-      fileName: (format) => `index.${format}.js`,
-    },
-    rollupOptions: {
-      external: ["react", "react-dom"],
-      // ✅ The 'output.globals' section is no longer needed and can be removed.
-    },
-    sourcemap: true,
-    emptyOutDir: true,
-  },
+  plugins: [react()],
   test: {
     projects: [
       {
@@ -65,5 +41,32 @@ export default defineConfig({
         },
       },
     ],
+  },
+  build: {
+    // 1. Library mode settings
+    lib: {
+      entry: path.resolve(__dirname, "src/components/index.js"), // Use path.resolve for clarity
+      name: "unifyedx-storybook-new",
+      fileName: (format) => `unifyedx-storybook-new.${format}.js`,
+      formats: ["es"],
+    },
+    // 2. Externalize peer dependencies
+    rollupOptions: {
+      external: ["react", "react-dom", "@headlessui/react", "framer-motion"],
+      output: {
+        // This is crucial for bundling all CSS into one file
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name === "style.css") {
+            return "style.css";
+          }
+          return assetInfo.name;
+        },
+      },
+    },
+    // 3. General output settings
+    outDir: "dist",
+    target: "esnext",
+    minify: false,
+    sourcemap: false,
   },
 });

@@ -1,5 +1,6 @@
 // Export every component you want to be public but not the stories
 // Export every component you want to be public
+import "../styles/main.css";
 export * from "./Avatar/Avatar";
 export * from "./Badge/Badge";
 export * from "./Button/Button";
